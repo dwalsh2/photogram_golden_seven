@@ -1,17 +1,28 @@
 <h1>All Photos</h1>
 
 <p>
-    <a href = "/photos/new">Add a new photo</a>
+    <a href = "/photos/new">
+        Add a new photo
+    </a>
 </p>
 
-<p>
-    <!--Display photo-->
-    <!--    <img src=pics>-->
-    <!--Show details button-->
-    <!--    <button>Show details</button>-->
-    <!--Edit button-->
-    <!--    <button>Edit</button>-->
-    <!--Delete button-->
-    <!--    <button>Delete</button>-->
-    
-</p>
+<% @our_photos.each do |the_photo| %>
+    <div class = "thumbnail">
+        <img src="<%= the_photo.source %>"
+        
+        <div class = "caption">
+            <a href="/photos/<%= the_photo.id %>" class="btn btn-default btn-block">
+                Show details
+            </a>
+                
+            <a href="/photos/<%= the_photo.id %>/edit" class="btn btn-default btn-block">
+                Edit
+            </a>
+                
+            <a href="/delete_photo/<%= the_photo.id %>" class="btn btn-default btn-block">
+                Delete
+            </a>
+                
+        </div>
+    </div>
+<% end %>

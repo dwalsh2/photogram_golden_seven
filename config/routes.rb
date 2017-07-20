@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 # /delete_photo
 # /add_new
 
+get("/", { :controller => "pictures", :action => "index" })
+
 # CREATE
 get("/photos/new", { :controller => "pictures", :action => "new_form" })
 get("/create_photo", { :controller => "pictures", :action => "create_row" })
