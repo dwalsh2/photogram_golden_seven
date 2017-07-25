@@ -20,7 +20,7 @@ class PicturesController < ApplicationController
     
     def index
         
-      @our_photos=Photo.order(:created_at => :desc)
+      @our_photos = Photo.order(:created_at => :desc)
             
       render("pic_templates/index.html.erb")
     end
@@ -51,7 +51,6 @@ class PicturesController < ApplicationController
     def update_row
       
       @total_photos = Photo.count
-      
       
       render("pic_templates/update_row.html.erb")
     end
