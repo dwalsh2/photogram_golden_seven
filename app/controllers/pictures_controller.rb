@@ -42,10 +42,30 @@ class PicturesController < ApplicationController
    
     def edit_form
       
-      
+      @the_photo = Photo.find(params["an_id"])
       
       
       render("pic_templates/edit_form.html.erb")
     end
+    
+    def update_row
+      
+      @total_photos = Photo.count
+      
+      
+      render("pic_templates/update_row.html.erb")
+    end
+    
+    def destroy_row
+      
+      @the_photo = Photo.find(params["toast_id"])
+      @the_photo.destroy
+      
+      @remaining_photos = Photo.count
+      
+      render("pic_templates/destroy_row.html.erb")
+    end
+    
+    
 end
 
