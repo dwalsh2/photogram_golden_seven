@@ -50,11 +50,14 @@ class PicturesController < ApplicationController
     
     def update_row
       
-      @the_photo = Photo.find(params["some_id"])
+      @photo = Photo.find(params["some_id"])
       
-      @total_photos = Photo.count
+      @photo.source = params["the_source"]
+      @photo.caption = params["the_caption"]
+
+      @photo.save
       
-      redirect_to "/photos/" + @the_photo.id
+      redirect_to "/photos/" + @photo.id
     end
     
     def destroy_row
