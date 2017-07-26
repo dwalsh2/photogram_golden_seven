@@ -14,7 +14,7 @@ class PicturesController < ApplicationController
       
       @photo_count = Photo.count
       
-      render("pic_templates/create_row.html.erb")
+      redirect_to "/photos"
     end
     
     
@@ -50,9 +50,11 @@ class PicturesController < ApplicationController
     
     def update_row
       
+      @the_photo = Photo.find(params["some_id"])
+      
       @total_photos = Photo.count
       
-      render("pic_templates/update_row.html.erb")
+      redirect_to "/photos/" + @the_photo.id
     end
     
     def destroy_row
@@ -62,7 +64,7 @@ class PicturesController < ApplicationController
       
       @remaining_photos = Photo.count
       
-      render("pic_templates/destroy_row.html.erb")
+      redirect_to "/photos"
     end
     
     
