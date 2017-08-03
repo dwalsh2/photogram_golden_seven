@@ -57,7 +57,7 @@ class PicturesController < ApplicationController
 
       @photo.save
       
-      redirect_to "/photos/" + @photo.id
+      redirect_to "/photos/#{@photo.id}"
     end
     
     def destroy_row
